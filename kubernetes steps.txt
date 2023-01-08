@@ -1,0 +1,21 @@
+1)install java 11 and jenkins and docker 
+2)To run pipeline we need jenkins full Permssion for that in ubuntu machine login edit and plcae jenkins permisiion
+   
+   sudo vi /etc/sudoers
+   
+   jenkins ALL=(ALL) NOPASSWD: ALL    (paste into the file)
+   
+   sudo su -jenkins
+
+3)Jenkin need permission to acess docker to build image for that give permission
+
+  sudo usermod -aG docker jenkins   (add jenkins to docker main group)
+4) Install aws cli and configure like giving secret id and acess id zone
+5)install kubectl and Eksctl
+
+6)  Create EKS using eksctl cmd
+
+
+    eksctl create cluster --name jhooq-test-cluster --version 1.24 --region ap-south-1 --nodegroup-name worker-nodes --node-type t2.micro --nodes 2
+
+

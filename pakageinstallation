@@ -31,8 +31,21 @@ latest
 
 eksctl create cluster --name jhooq-test-cluster --version 1.17 --region eu-central-1 --nodegroup-name worker-nodes --node-type t2.micro --nodes 2
 
-To connect and acess eks form aws cli
-aws eks update-kubeconfig --name clustername --region urregion
+
+
+
+
+##To aceess ekctl on windows 
+##domnload awscli kubectl and eksctl and place it on c drive create tools folder place it inside and go to system envrnment variable,eidt path put the path of c:/tools
+
+##go inside the folder tools run aws --version and aws configure
+
+##and connect and update kubecinfig file locally using below cmd
+##To connect and acess eks form aws cli
+aws eks update-kubeconfig --name jhooq-test-cluster --region us-east-1
+
+##then u can acess ur eks in la[top
+
 
 
 

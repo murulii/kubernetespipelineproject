@@ -1,1 +1,50 @@
-hi
+1) Jenkins
+apt-get install openjdk-11-jdk
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+1.1)
+sudo vi /etc/sudoers 
+jenkins ALL=(ALL) NOPASSWD: ALL 
+sudo su - jenkins 
+
+sudo apt install docker.io
+sudo usermod -aG docker jenkins 
+
+
+2) awscli
+
+sudo apt install awscli 
+aws --version 
+aws configure 
+##acess key and secrete and region
+or
+sudo su - jenkins
+apt-get install unzip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+2)kubectl
+sudo su - jenkins
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl 
+sudo mv ./kubectl /usr/local/bin
+kubectl version
+
+3) EKSCTL
+ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin 
+eksctl version
+
+4) Create EKS cluster and worker nodes Using AWSCLI
+
+eksctl create cluster --name jhooq-test-cluster --version 1.17 --region eu-central-1 --nodegroup-name worker-nodes --node-type t2.micro --nodes 2
+
+
+

@@ -46,5 +46,10 @@ eksctl version
 
 eksctl create cluster --name jhooq-test-cluster --version 1.17 --region eu-central-1 --nodegroup-name worker-nodes --node-type t2.micro --nodes 2
 
+To connect and acess eks form aws cli
+aws eks update-kubeconfig --name clustername --region urregion
+
+
+
 
 

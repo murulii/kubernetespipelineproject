@@ -47,6 +47,18 @@ aws eks update-kubeconfig --name jhooq-test-cluster --region us-east-1
 ##then u can acess ur eks in la[top
 
 
+Delete Cluster and Worknode grp 
+
+aws eks delete-nodegroup --cluster-name muruli --nodegroup-name worker-nodes
+aws eks describe-nodegroup --cluster-name muruli --nodegroup-name worker-nodes --query 'nodegroup.status'
+
+aws eks delete-cluster --name <cluster-name>
+aws eks describe-cluster --name <cluster-name> --query 'cluster.status'
+
+
+
+
+
 
 
 
